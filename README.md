@@ -17,9 +17,17 @@ _June 2021_
 ```batch
 cd Three.js-TypeScript-Tutorial
 npm install
-tsc -p ./src/server
-tsc -p ./src/client
+tsc -p ./src/server -w
+tsc -p ./src/client -w
 node dist/server/server.js
+```
+
+Or
+
+```batch
+cd Three.js-TypeScript-Tutorial
+npm install
+npm run dev
 ```
 
 [http://localhost:3000/](http://localhost:3000/)
@@ -28,7 +36,17 @@ node dist/server/server.js
     <img src="_readme-img/architecture.jpg">
 </h1>
 
-## Overview
+## Boilerplate
+
+```batch
+git clone https://github.com/Sean-Bradley/Three.js-TypeScript-Boilerplate.git
+cd Three.js-TypeScript-Boilerplate
+npm install -g typescript
+npm install
+npm run dev
+```
+
+## Overview: Typescript
 
 `tsc --init` => generate _tsconfig.json_
 
@@ -110,9 +128,17 @@ console.log(fred.getGarply());
 
 `npm i @types/node`
 
-- [express](https://www.npmjs.com/package/express): Fast, unopinionated, minimalist web framework for node..
+- [express](https://www.npmjs.com/package/express): Fast, unopinionated, minimalist web framework for node.
 
 `npm i express`
+
+- [nodemon](https://www.npmjs.com/package/nodemon): nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+
+`npm install --save-dev nodemon`
+
+- [concurrently](https://www.npmjs.com/package/concurrently): Run multiple commands concurrently. Like npm run watch-js & npm run watch-less but better.
+
+`npm install --save-dev concurrently`
 
 ## Useful links
 
