@@ -10,9 +10,9 @@ _June 2021_
     <img src="_readme-img/logos.png">
 </h1>
 
-## Test locally
+## Test locally (Relative Import)
 
-## Launch server
+### Launch server-app
 
 ```batch
 cd Three.js-TypeScript-Tutorial
@@ -30,7 +30,16 @@ npm install
 npm run dev
 ```
 
-[http://localhost:3000/](http://localhost:3000/)
+## Test locally (Module Specifiers exemple)
+
+```batch
+cd Threejs-TS-Webpack
+git checkout statsguiwebpack
+npm install
+npm run dev
+```
+
+[http://localhost:8080/](http://localhost:8080/)
 
 <h1 align="center">
     <img src="_readme-img/architecture.jpg">
