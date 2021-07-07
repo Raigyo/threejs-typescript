@@ -3,9 +3,10 @@ import { OrbitControls } from "/jsm/controls/OrbitControls";
 import Stats from "/jsm/libs/stats.module"; // default export
 import { GUI } from "/jsm/libs/dat.gui.module"; // {} no default export: we using a specific class from module
 
-// default export
-
 const scene: THREE.Scene = new THREE.Scene();
+
+// We add axes
+
 let axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
 const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
@@ -15,36 +16,72 @@ const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
   1000
 );
 
+// We display WebGL scenes
+
 const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+// We add controls
+
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.addEventListener("change", render); //this line is unnecessary if you are re-rendering within the animation loop
+
+// Var declarations + adding figures on scene
 
 const boxGeometry: THREE.BoxGeometry = new THREE.BoxGeometry();
 const sphereGeometry: THREE.SphereGeometry = new THREE.SphereGeometry();
 const icosahedronGeometry: THREE.IcosahedronGeometry =
   new THREE.IcosahedronGeometry();
+const planeGeometry: THREE.PlaneGeometry = new THREE.PlaneGeometry();
+const torusKnotGeometry: THREE.TorusKnotGeometry =
+  new THREE.TorusKnotGeometry();
 //console.dir(geometry);
 
-const material: THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial({
-  color: 0x00ff00,
-  wireframe: true,
-});
+const material: THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial(/* {
+//   color: 0x00ff00,
+//   wireframe: true,
+// } */);
+// const material: THREE.MeshNormalMaterial = new THREE.MeshNormalMaterial();
+material.transparent = true;
+material.opacity = 2.5;
+
+const texture = new THREE.TextureLoader().load("img/grid.png");
+material.map = texture;
+const envTexture = new THREE.CubeTextureLoader().load([
+  "img/px_50.png",
+  "img/nx_50.png",
+  "img/py_50.png",
+  "img/ny_50.png",
+  "img/pz_50.png",
+  "img/nz_50.png",
+]);
+// envTexture.mapping = THREE.CubeReflectionMapping;
+envTexture.mapping = THREE.CubeRefractionMapping;
+material.envMap = envTexture;
+// material.needsUpdate = true;
 
 const cube: THREE.Mesh = new THREE.Mesh(boxGeometry, material);
-cube.position.x = 3;
+cube.position.x = 5;
 scene.add(cube);
 
 const sphere: THREE.Mesh = new THREE.Mesh(sphereGeometry, material);
+sphere.position.x = 3;
 scene.add(sphere);
 
 const icosahedron: THREE.Mesh = new THREE.Mesh(icosahedronGeometry, material);
-icosahedron.position.x = -3;
+icosahedron.position.x = 0;
 scene.add(icosahedron);
 
-camera.position.z = 2;
+const plane: THREE.Mesh = new THREE.Mesh(planeGeometry, material);
+plane.position.x = -2;
+scene.add(plane);
+
+const torusKnot: THREE.Mesh = new THREE.Mesh(torusKnotGeometry, material);
+torusKnot.position.x = -5;
+scene.add(torusKnot);
+
+// Events listener
 
 window.addEventListener("resize", onWindowResize, false);
 function onWindowResize() {
@@ -54,14 +91,29 @@ function onWindowResize() {
   render();
 }
 
-// We add stats
+// STATS (FPS)
 const stats = Stats();
 document.body.appendChild(stats.dom);
 
+// Dat Gui module
+const gui = new GUI();
+
+// CAMERA + GUI
+
+camera.position.z = 2;
+const cameraFolder = gui.addFolder("CAMERA");
+cameraFolder.add(camera.position, "x", -10, 10, 0.01);
+cameraFolder.add(camera.position, "y", -10, 10, 0.01);
+cameraFolder.add(camera.position, "z", 0, 10, 0.01);
+// cameraFolder.open();
+
+// GEOMETRY
+
+const geometryFolder = gui.addFolder("GEOMETRY");
+
 // Dat Gui module: we add controls for cube
 
-const gui = new GUI();
-const cubeFolder = gui.addFolder("Cube");
+const cubeFolder = geometryFolder.addFolder("Cube");
 cubeFolder.add(cube, "visible", true);
 const cubeRotationFolder = cubeFolder.addFolder("Rotation");
 cubeRotationFolder.add(cube.rotation, "x", 0, Math.PI * 2, 0.01);
@@ -76,7 +128,7 @@ cubeScaleFolder.add(cube.scale, "x", -5, 5, 0.1);
 cubeScaleFolder.add(cube.scale, "y", -5, 5, 0.1);
 cubeScaleFolder.add(cube.scale, "z", -5, 5, 0.1);
 
-cubeFolder.open();
+// cubeFolder.open();
 
 let cubeData = {
   width: 1,
@@ -122,7 +174,7 @@ function regenerateBoxGeometry() {
 
 // Dat Gui module: we add controls for sphere
 
-const sphereFolder = gui.addFolder("Sphere");
+const sphereFolder = geometryFolder.addFolder("Sphere");
 sphereFolder.add(sphere, "visible", true);
 const sphereRotationFolder = sphereFolder.addFolder("Rotation");
 sphereRotationFolder.add(sphere.rotation, "x", 0, Math.PI * 2, 0.01);
@@ -184,13 +236,14 @@ function regenerateSphereGeometry() {
   sphere.geometry = newGeometry;
 }
 
-// icosahedron
+// GUI: icosahedron
 
 let icosahedronData = {
   radius: 1,
   detail: 0,
 };
-const icosahedronFolder = gui.addFolder("Icosahedron");
+const icosahedronFolder = geometryFolder.addFolder("Icosahedron");
+icosahedronFolder.add(sphere, "visible", true);
 const icosahedronPropertiesFolder = icosahedronFolder.addFolder("Properties");
 icosahedronPropertiesFolder
   .add(icosahedronData, "radius", 0.1, 10)
@@ -209,13 +262,78 @@ function regenerateIcosahedronGeometry() {
   icosahedron.geometry = newGeometry;
 }
 
-// Camera
+// MATERIALS
 
-const cameraFolder = gui.addFolder("Camera");
-cameraFolder.add(camera.position, "x", -10, 10, 0.01);
-cameraFolder.add(camera.position, "y", -10, 10, 0.01);
-cameraFolder.add(camera.position, "z", 0, 10, 0.01);
-cameraFolder.open();
+const materialsFolder = gui.addFolder("MATERIALS");
+
+// Dat Gui module: we add Material control
+
+let options = {
+  side: {
+    FrontSide: THREE.FrontSide,
+    BackSide: THREE.BackSide,
+    DoubleSide: THREE.DoubleSide,
+  },
+  combine: {
+    MultiplyOperation: THREE.MultiplyOperation,
+    MixOperation: THREE.MixOperation,
+    AddOperation: THREE.AddOperation,
+  },
+};
+
+const materialFolder = materialsFolder.addFolder("THREE.Material");
+materialFolder.add(material, "transparent");
+materialFolder.add(material, "opacity", 0, 1, 0.01);
+materialFolder.add(material, "depthTest");
+materialFolder.add(material, "depthWrite");
+materialFolder
+  .add(material, "alphaTest", 0, 1, 0.01)
+  .onChange(() => updateMaterial());
+materialFolder.add(material, "visible");
+materialFolder
+  .add(material, "side", options.side)
+  .onChange(() => updateMaterial());
+// materialFolder.open();
+
+// Dat Gui module: we add MeshBasicMaterial control
+
+let data = {
+  color: material.color.getHex(),
+};
+
+var meshBasicMaterialFolder = materialsFolder.addFolder(
+  "THREE.MeshBasicMaterial"
+);
+
+meshBasicMaterialFolder.addColor(data, "color").onChange(() => {
+  material.color.setHex(Number(data.color.toString().replace("#", "0x")));
+});
+meshBasicMaterialFolder.add(material, "wireframe");
+// meshBasicMaterialFolder.add(material, "wireframeLinewidth", 0, 10); // deprecated
+meshBasicMaterialFolder
+  .add(material, "combine", options.combine)
+  .onChange(() => updateMaterial());
+meshBasicMaterialFolder.add(material, "reflectivity", 0, 1);
+meshBasicMaterialFolder.add(material, "refractionRatio", 0, 1); // CubeRefractionMapping
+// meshBasicMaterialFolder.open();
+
+// Dat Gui module: we add MeshNormalMaterial control
+
+var meshNormalMaterialFolder = materialsFolder.addFolder(
+  "THREE.MeshNormalMaterial"
+);
+
+meshNormalMaterialFolder.add(material, "wireframe");
+meshNormalMaterialFolder
+  .add(material, "flatShading")
+  .onChange(() => updateMaterial());
+meshNormalMaterialFolder.open();
+
+function updateMaterial() {
+  material.side = Number(material.side);
+  material.combine = Number(material.combine);
+  material.needsUpdate = true;
+}
 
 // Launch animation
 
