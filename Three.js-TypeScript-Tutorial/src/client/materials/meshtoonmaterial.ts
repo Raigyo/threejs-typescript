@@ -40,15 +40,15 @@ const planeGeometry: THREE.PlaneGeometry = new THREE.PlaneGeometry();
 const torusKnotGeometry: THREE.TorusKnotGeometry =
   new THREE.TorusKnotGeometry();
 
-const threeTone = new THREE.TextureLoader().load("img/threeTone.jpg");
+const threeTone = new THREE.TextureLoader().load("../img/threeTone.jpg");
 threeTone.minFilter = THREE.NearestFilter;
 threeTone.magFilter = THREE.NearestFilter;
 
-const fourTone = new THREE.TextureLoader().load("img/fourTone.jpg");
+const fourTone = new THREE.TextureLoader().load("../img/fourTone.jpg");
 fourTone.minFilter = THREE.NearestFilter;
 fourTone.magFilter = THREE.NearestFilter;
 
-const fiveTone = new THREE.TextureLoader().load("img/fiveTone.jpg");
+const fiveTone = new THREE.TextureLoader().load("../img/fiveTone.jpg");
 fiveTone.minFilter = THREE.NearestFilter;
 fiveTone.magFilter = THREE.NearestFilter;
 
