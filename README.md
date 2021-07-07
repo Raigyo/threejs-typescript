@@ -1,6 +1,6 @@
 # Three.js and TypeScript
 
-_June 2021_
+_June / July 2021_
 
 > 🔨 From Udemy [Three.js and TypeScript - Sean Bradley](https://www.udemy.com/course/threejs-tutorials/).
 
