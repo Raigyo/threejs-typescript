@@ -35,8 +35,7 @@ npm run dev
 ## Test locally (Module Specifiers exemple)
 
 ```batch
-cd Threejs-TS-Webpack
-git checkout statsguiwebpack
+cd Webpack-template
 npm install
 npm run dev
 ```
