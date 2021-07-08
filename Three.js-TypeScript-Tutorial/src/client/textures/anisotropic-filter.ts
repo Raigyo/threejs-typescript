@@ -32,50 +32,50 @@ document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.screenSpacePanning = true; //so that panning up and down doesn't zoom in/out
 
-const planeGeometry1: THREE.PlaneGeometry = new THREE.PlaneGeometry(2, 25);
-const planeGeometry2: THREE.PlaneGeometry = new THREE.PlaneGeometry(2, 25);
+const planeGeometry1: THREE.PlaneGeometry = new THREE.PlaneGeometry(/*2, 25*/);
+const planeGeometry2: THREE.PlaneGeometry = new THREE.PlaneGeometry(/*2, 25*/);
 
-//const texture1 = new THREE.TextureLoader().load("img/grid.png")
-//const texture2 = new THREE.TextureLoader().load("img/grid.png")
+const texture1 = new THREE.TextureLoader().load("img/grid.png");
+const texture2 = new THREE.TextureLoader().load("img/grid.png");
 
-let mipmap = (size: number, color: string) => {
-  const imageCanvas = document.createElement("canvas") as HTMLCanvasElement;
-  const context = imageCanvas.getContext("2d") as CanvasRenderingContext2D;
-  imageCanvas.width = size;
-  imageCanvas.height = size;
-  context.fillStyle = "#888888";
-  context.fillRect(0, 0, size, size);
-  context.fillStyle = color;
-  context.fillRect(0, 0, size / 2, size / 2);
-  context.fillRect(size / 2, size / 2, size / 2, size / 2);
-  return context.getImageData(0, 0, size, size);
-};
+// let mipmap = (size: number, color: string) => {
+//   const imageCanvas = document.createElement("canvas") as HTMLCanvasElement;
+//   const context = imageCanvas.getContext("2d") as CanvasRenderingContext2D;
+//   imageCanvas.width = size;
+//   imageCanvas.height = size;
+//   context.fillStyle = "#888888";
+//   context.fillRect(0, 0, size, size);
+//   context.fillStyle = color;
+//   context.fillRect(0, 0, size / 2, size / 2);
+//   context.fillRect(size / 2, size / 2, size / 2, size / 2);
+//   return context.getImageData(0, 0, size, size);
+// };
 
-const texture1 = new THREE.CanvasTexture(document.createElement("canvas"));
-texture1.mipmaps[0] = mipmap(128, "#ff0000");
-texture1.mipmaps[1] = mipmap(64, "#00ff00");
-texture1.mipmaps[2] = mipmap(32, "#0000ff");
-texture1.mipmaps[3] = mipmap(16, "#880000");
-texture1.mipmaps[4] = mipmap(8, "#008800");
-texture1.mipmaps[5] = mipmap(4, "#000088");
-texture1.mipmaps[6] = mipmap(2, "#008888");
-texture1.mipmaps[7] = mipmap(1, "#880088");
-texture1.repeat.set(5, 50);
-texture1.wrapS = THREE.RepeatWrapping;
-texture1.wrapT = THREE.RepeatWrapping;
+// const texture1 = new THREE.CanvasTexture(document.createElement("canvas"));
+// texture1.mipmaps[0] = mipmap(128, "#ff0000");
+// texture1.mipmaps[1] = mipmap(64, "#00ff00");
+// texture1.mipmaps[2] = mipmap(32, "#0000ff");
+// texture1.mipmaps[3] = mipmap(16, "#880000");
+// texture1.mipmaps[4] = mipmap(8, "#008800");
+// texture1.mipmaps[5] = mipmap(4, "#000088");
+// texture1.mipmaps[6] = mipmap(2, "#008888");
+// texture1.mipmaps[7] = mipmap(1, "#880088");
+// texture1.repeat.set(5, 50);
+// texture1.wrapS = THREE.RepeatWrapping;
+// texture1.wrapT = THREE.RepeatWrapping;
 
-const texture2 = new THREE.CanvasTexture(document.createElement("canvas"));
-texture2.mipmaps[0] = mipmap(128, "#ff0000");
-texture2.mipmaps[1] = mipmap(64, "#00ff00");
-texture2.mipmaps[2] = mipmap(32, "#0000ff");
-texture2.mipmaps[3] = mipmap(16, "#880000");
-texture2.mipmaps[4] = mipmap(8, "#008800");
-texture2.mipmaps[5] = mipmap(4, "#000088");
-texture2.mipmaps[6] = mipmap(2, "#008888");
-texture2.mipmaps[7] = mipmap(1, "#880088");
-texture2.repeat.set(5, 50);
-texture2.wrapS = THREE.RepeatWrapping;
-texture2.wrapT = THREE.RepeatWrapping;
+// const texture2 = new THREE.CanvasTexture(document.createElement("canvas"));
+// texture2.mipmaps[0] = mipmap(128, "#ff0000");
+// texture2.mipmaps[1] = mipmap(64, "#00ff00");
+// texture2.mipmaps[2] = mipmap(32, "#0000ff");
+// texture2.mipmaps[3] = mipmap(16, "#880000");
+// texture2.mipmaps[4] = mipmap(8, "#008800");
+// texture2.mipmaps[5] = mipmap(4, "#000088");
+// texture2.mipmaps[6] = mipmap(2, "#008888");
+// texture2.mipmaps[7] = mipmap(1, "#880088");
+// texture2.repeat.set(5, 50);
+// texture2.wrapS = THREE.RepeatWrapping;
+// texture2.wrapT = THREE.RepeatWrapping;
 
 const material1: THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial({
   map: texture1,

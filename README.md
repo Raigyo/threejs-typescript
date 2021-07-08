@@ -156,6 +156,26 @@ The window.requestAnimationFrame() method tells the browser that you wish to per
 
 The number of callbacks is usually 60 times per second, but will generally match the display refresh rate in most web browsers as per W3C recommendation. requestAnimationFrame() calls are paused in most browsers when running in background tabs or hidden <iframe>s in order to improve performance and battery life.
 
+### Lights
+
+There are various kinds of lights in Threejs.
+
+They all extend from the THREE.Light base class, which in turn also extends from the Object3D base class.
+
+The base class properties
+
+- color
+- intensity
+- isLight (Read Only)
+- receiveShadow
+- shadow
+
+Lighting gives you many more options to change the appearance of meshes within the scene. Meshes will need materials added to them in order for the lighting adjustments to take effect.
+
+If a scene has no lighting, most materials won't be visible. The meshBasicMaterial, meshNormalMaterial and the MeshMatcapMaterial are self illuminating so they don't need lighting to be visible within a scene, but most of the other materials do, such as the meshLambertMaterial, meshPhongMaterial, MeshStandardMaterial, MeshPhysicalMaterial and MeshToonMaterial.
+
+In these next examples, I will demonstrate how the different lighting affects the different materials.
+
 ## Dependancies
 
 - [typescript](https://www.npmjs.com/package/typescript): TypeScript is a language for application-scale JavaScript. TypeScript adds optional types to JavaScript that support tools for large-scale JavaScript applications for any browser, for any host, on any OS.

@@ -1,0 +1,39 @@
+body {
+  overflow: hidden;
+  margin: 0px;
+}
+
+h1 {
+  background-color: #333;
+  text-align: center;
+  color: aliceblue;
+  padding-top: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#gui {
+  position: relative;
+  top: 6rem;
+  z-index: 9999;
+  border: solid 1px green;
+}
+
+#stats {
+  position: absolute !important;
+  top: auto !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  z-index: 9999 !important;
+  margin: 5px !important;
+  border: solid 1px green !important;
+}
+
+.dg.main .close-button.close-bottom {
+  background-color: green;
+  border-top: solid 1px green !important;
+}
+
+/* .webglCanvas {
+      margin-top: 250px;
+    } */
