@@ -67,7 +67,7 @@ body {
 </style>
 <div class="navbar">
   <a href="#home">Home</a>
-  <a href="#news">Geometry</a>
+  <a href="../components/geometry/geometry.html">Geometry</a>
   <div class="dropdown">
     <button class="dropbtn">Materials 
       <i class="fa fa-caret-down"></i>
