@@ -1,19 +1,14 @@
-// If using Relative Import References
 import * as THREE from "/build/three.module.js";
 import { OrbitControls } from "/jsm/controls/OrbitControls";
-import Stats from "/jsm/libs/stats.module";
-import { GUI } from "/jsm/libs/dat.gui.module";
-
-// If using Module Specifiers
-//import * as THREE from 'three'
-//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-//import Stats from 'three/examples/jsm/libs/stats.module'
-//import { GUI } from 'three/examples/jsm/libs/dat.gui.module'
+import Stats from "/jsm/libs/stats.module"; // default export
+import { GUI } from "/jsm/libs/dat.gui.module"; // {} no default export: we using a specific class from module
 
 const scene: THREE.Scene = new THREE.Scene();
-const axesHelper = new THREE.AxesHelper(5);
-scene.add(axesHelper);
 
+// We add axes
+
+let axesHelper = new THREE.AxesHelper(5);
+scene.add(axesHelper);
 const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
@@ -21,19 +16,28 @@ const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
   1000
 );
 
+// We display WebGL scenes
+
 const renderer = new THREE.WebGLRenderer({ canvas: webglCanvas });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+// We add controls
+
 const controls = new OrbitControls(camera, renderer.domElement);
-//controls.addEventListener('change', render)
+controls.addEventListener("change", render); //this line is unnecessary if you are re-rendering within the animation loop
+
+// Var declarations + adding figures on scene
 
 const boxGeometry: THREE.BoxGeometry = new THREE.BoxGeometry();
 const sphereGeometry: THREE.SphereGeometry = new THREE.SphereGeometry();
 const icosahedronGeometry: THREE.IcosahedronGeometry =
   new THREE.IcosahedronGeometry();
+const planeGeometry: THREE.PlaneGeometry = new THREE.PlaneGeometry();
+const torusKnotGeometry: THREE.TorusKnotGeometry =
+  new THREE.TorusKnotGeometry();
+//console.dir(geometry);
 
-//console.dir(geometry)
 const material: THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial({
   color: 0x00ff00,
   wireframe: true,
@@ -44,13 +48,22 @@ cube.position.x = 5;
 scene.add(cube);
 
 const sphere: THREE.Mesh = new THREE.Mesh(sphereGeometry, material);
-sphere.position.x = -5;
+sphere.position.x = 3;
 scene.add(sphere);
 
 const icosahedron: THREE.Mesh = new THREE.Mesh(icosahedronGeometry, material);
+icosahedron.position.x = 0;
 scene.add(icosahedron);
 
-camera.position.z = 5;
+const plane: THREE.Mesh = new THREE.Mesh(planeGeometry, material);
+plane.position.x = -2;
+scene.add(plane);
+
+const torusKnot: THREE.Mesh = new THREE.Mesh(torusKnotGeometry, material);
+torusKnot.position.x = -5;
+scene.add(torusKnot);
+
+// Events listener
 
 window.addEventListener("resize", onWindowResize, false);
 function onWindowResize() {
@@ -60,13 +73,31 @@ function onWindowResize() {
   render();
 }
 
+// STATS (FPS)
 const stats = Stats();
 stats.domElement.id = "stats";
 document.body.appendChild(stats.dom);
 
+// Dat Gui module
 const gui = new GUI();
 gui.domElement.id = "gui";
-const cubeFolder = gui.addFolder("Cube");
+// CAMERA + GUI
+
+camera.position.z = 2;
+const cameraFolder = gui.addFolder("CAMERA");
+cameraFolder.add(camera.position, "x", -10, 10, 0.01);
+cameraFolder.add(camera.position, "y", -10, 10, 0.01);
+cameraFolder.add(camera.position, "z", 0, 10, 0.01);
+// cameraFolder.open();
+
+// GEOMETRY
+
+const geometryFolder = gui.addFolder("GEOMETRY");
+
+// Dat Gui module: we add controls for cube
+
+const cubeFolder = geometryFolder.addFolder("Cube");
+cubeFolder.add(cube, "visible", true);
 const cubeRotationFolder = cubeFolder.addFolder("Rotation");
 cubeRotationFolder.add(cube.rotation, "x", 0, Math.PI * 2, 0.01);
 cubeRotationFolder.add(cube.rotation, "y", 0, Math.PI * 2, 0.01);
@@ -76,15 +107,13 @@ cubePositionFolder.add(cube.position, "x", -10, 10);
 cubePositionFolder.add(cube.position, "y", -10, 10);
 cubePositionFolder.add(cube.position, "z", -10, 10);
 const cubeScaleFolder = cubeFolder.addFolder("Scale");
-cubeScaleFolder
-  .add(cube.scale, "x", -5, 5, 0.1)
-  .onFinishChange(() => console.dir(cube.geometry));
+cubeScaleFolder.add(cube.scale, "x", -5, 5, 0.1);
 cubeScaleFolder.add(cube.scale, "y", -5, 5, 0.1);
 cubeScaleFolder.add(cube.scale, "z", -5, 5, 0.1);
-cubeFolder.add(cube, "visible", true);
-cubeFolder.open();
 
-var cubeData = {
+// cubeFolder.open();
+
+let cubeData = {
   width: 1,
   height: 1,
   depth: 1,
@@ -126,7 +155,24 @@ function regenerateBoxGeometry() {
   cube.geometry = newGeometry;
 }
 
-var sphereData = {
+// Dat Gui module: we add controls for sphere
+
+const sphereFolder = geometryFolder.addFolder("Sphere");
+sphereFolder.add(sphere, "visible", true);
+const sphereRotationFolder = sphereFolder.addFolder("Rotation");
+sphereRotationFolder.add(sphere.rotation, "x", 0, Math.PI * 2, 0.01);
+sphereRotationFolder.add(sphere.rotation, "y", 0, Math.PI * 2, 0.01);
+sphereRotationFolder.add(sphere.rotation, "z", 0, Math.PI * 2, 0.01);
+const spherePositionFolder = sphereFolder.addFolder("Position");
+spherePositionFolder.add(sphere.position, "x", -10, 10);
+spherePositionFolder.add(sphere.position, "y", -10, 10);
+spherePositionFolder.add(sphere.position, "z", -10, 10);
+const sphereScaleFolder = sphereFolder.addFolder("Scale");
+sphereScaleFolder.add(sphere.scale, "x", -5, 5, 0.1);
+sphereScaleFolder.add(sphere.scale, "y", -5, 5, 0.1);
+sphereScaleFolder.add(sphere.scale, "z", -5, 5, 0.1);
+
+let sphereData = {
   radius: 1,
   widthSegments: 8,
   heightSegments: 6,
@@ -135,7 +181,7 @@ var sphereData = {
   thetaStart: 0,
   thetaLength: Math.PI,
 };
-const sphereFolder = gui.addFolder("Sphere");
+
 const spherePropertiesFolder = sphereFolder.addFolder("Properties");
 spherePropertiesFolder
   .add(sphereData, "radius", 0.1, 30)
@@ -173,11 +219,14 @@ function regenerateSphereGeometry() {
   sphere.geometry = newGeometry;
 }
 
-var icosahedronData = {
+// GUI: icosahedron
+
+let icosahedronData = {
   radius: 1,
   detail: 0,
 };
-const icosahedronFolder = gui.addFolder("Icosahedron");
+const icosahedronFolder = geometryFolder.addFolder("Icosahedron");
+icosahedronFolder.add(sphere, "visible", true);
 const icosahedronPropertiesFolder = icosahedronFolder.addFolder("Properties");
 icosahedronPropertiesFolder
   .add(icosahedronData, "radius", 0.1, 10)
@@ -196,22 +245,23 @@ function regenerateIcosahedronGeometry() {
   icosahedron.geometry = newGeometry;
 }
 
-var animate = function () {
+// Launch animation
+
+let animate = function () {
   requestAnimationFrame(animate);
 
-  //cube.rotation.x += 0.01;
-  //cube.rotation.y += 0.01;
+  // cube.rotation.x += 0.01;
+  // cube.rotation.y += 0.01;
 
-  render();
-
-  // (document.getElementById("debug1") as HTMLDivElement).innerText =
-  //   "Matrix\n" + cube.matrix.elements.toString().replace(/,/g, "\n");
+  renderer.render(scene, camera);
 
   stats.update();
 };
 
 function render() {
+  stats.begin();
   renderer.render(scene, camera);
+  stats.end();
 }
-//render()
+// render();
 animate();
