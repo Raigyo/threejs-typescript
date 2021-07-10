@@ -37,18 +37,20 @@ const planeGeometry: THREE.PlaneGeometry = new THREE.PlaneGeometry(
 
 const material: THREE.MeshPhongMaterial = new THREE.MeshPhongMaterial();
 
-//const texture = new THREE.TextureLoader().load("img/grid.png")
-const texture = new THREE.TextureLoader().load("img/worldColour.5400x2700.jpg");
+//const texture = new THREE.TextureLoader().load("../../img/grid.png")
+const texture = new THREE.TextureLoader().load(
+  "../../img/worldColour.5400x2700.jpg"
+);
 material.map = texture;
-// const envTexture = new THREE.CubeTextureLoader().load(["img/px_eso0932a.jpg", "img/nx_eso0932a.jpg", "img/py_eso0932a.jpg", "img/ny_eso0932a.jpg", "img/pz_eso0932a.jpg", "img/nz_eso0932a.jpg"])
+// const envTexture = new THREE.CubeTextureLoader().load(["../../img/px_eso0932a.jpg", "../../img/nx_eso0932a.jpg", "../../img/py_eso0932a.jpg", "../../img/ny_eso0932a.jpg", "../../img/pz_eso0932a.jpg", "../../img/nz_eso0932a.jpg"])
 // envTexture.mapping = THREE.CubeReflectionMapping
 // material.envMap = envTexture
 
-//const specularTexture = new THREE.TextureLoader().load("img/earthSpecular.jpg")
+//const specularTexture = new THREE.TextureLoader().load("../../img/earthSpecular.jpg")
 // material.specularMap = specularTexture
 
 const displacementMap = new THREE.TextureLoader().load(
-  "img/gebco_bathy.5400x2700_8bit.jpg"
+  "../../img/gebco_bathy.5400x2700_8bit.jpg"
 );
 material.displacementMap = displacementMap;
 

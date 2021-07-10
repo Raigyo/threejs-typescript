@@ -129,15 +129,21 @@ headerTemplate.innerHTML = `
 
 <div class="topnav" id="myTopnav">
   <a href="/" class="active">Home</a>
-  <a href="../components/geometry/geometry.html">Geometry</a>
+  <a href="/components/geometry/geometry.html">Geometry</a>
   <div class="dropdown">
     <button class="dropbtn">Materials
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="/components/materials/materials.html">Material</a>
+      <a href="/components/materials/meshbasicmaterial.html">MeshBasicMaterial</a>
+      <a href="/components/materials/meshnormalmaterial.html">MeshNormalMaterial</a>
+      <a href="/components/materials/meshlambertmaterial.html">MeshLambertMaterial</a>
+      <a href="/components/materials/meshphongmaterial.html">MeshPhongMaterial</a>
+      <a href="/components/materials/meshstandardmaterial.html">MeshStandardMaterial</a>
+      <a href="/components/materials/meshphysicalmaterial.html">MeshPhysicalMaterial</a>
+      <a href="/components/materials/meshmatcapmaterial.html">MeshMatcapMaterial</a>
+      <a href="/components/materials/meshtoonmaterial.html">MeshToonMaterial</a>
     </div>
   </div>
   <div class="dropdown">
@@ -145,9 +151,10 @@ headerTemplate.innerHTML = `
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="/components/map/specularmap.html">SpecularMap</a>
+      <a href="/components/map/roughness-metalness-map.html">RoughnessMap and MetalnessMap</a>
+      <a href="/components/map/bumpmap.html">BumpMap</a>
+      <a href="/components/map/displacementmap.html">DisplacementMap</a>
     </div>
   </div>
   <div class="dropdown">
@@ -155,9 +162,10 @@ headerTemplate.innerHTML = `
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="/components/textures/uvmap.html">Material Repeat and Center</a>
+      <a href="/components/textures/texture-minimaps.html">Texture Mipmaps</a>
+      <a href="/components/textures/custom-minimaps.html">Custom Mipmaps</a>
+      <a href="/components/textures/anisotropic-filter.html">Anistropic Filtering</a>
     </div>
   </div>
   <div class="dropdown">
@@ -165,12 +173,15 @@ headerTemplate.innerHTML = `
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="/components/lights/ambiant-light.html">Ambient Light</a>
+      <a href="/components/lights/directional-light.html">Directional Light</a>
+      <a href="/components/lights/hemisphere-light.html">Hemisphere Light</a>
+      <a href="#">Point Light</a>
+      <a href="#">Spot Light</a>
+      <a href="#">Spot Light Shadow</a>
+      <a href="#">Directional Light Shadow</a>
     </div>
   </div>
-  <a href="#about">About</a>
   <a href="javascript:void(0);" class="icon">&#9776;</a>
 </div>
 

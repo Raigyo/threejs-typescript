@@ -66,7 +66,7 @@ const torus: THREE.Mesh[] = [
   new THREE.Mesh(torusGeometry[4], material[4]),
 ];
 
-const texture = new THREE.TextureLoader().load("img/grid.png");
+const texture = new THREE.TextureLoader().load("../../img/grid.png");
 material[0].map = texture;
 material[1].map = texture;
 material[2].map = texture;

@@ -44,9 +44,9 @@ const torusKnotGeometry: THREE.TorusKnotGeometry =
 
 const material: THREE.MeshStandardMaterial = new THREE.MeshStandardMaterial();
 
-// const texture = new THREE.TextureLoader().load("../img/grid.png")
+// const texture = new THREE.TextureLoader().load("../../img/grid.png")
 // material.map = texture
-// const envTexture = new THREE.CubeTextureLoader().load(["../img/px_50.png", "../img/nx_50.png", "../img/py_50.png", "../img/ny_50.png", "../img/pz_50.png", "../img/nz_50.png"])
+// const envTexture = new THREE.CubeTextureLoader().load(["../../img/px_50.png", "../../img/nx_50.png", "../../img/py_50.png", "../../img/ny_50.png", "../../img/pz_50.png", "../../img/nz_50.png"])
 // envTexture.mapping = THREE.CubeReflectionMapping
 // //envTexture.mapping = THREE.CubeRefractionMapping
 // material.envMap = envTexture

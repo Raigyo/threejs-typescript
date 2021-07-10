@@ -35,8 +35,8 @@ controls.screenSpacePanning = true; //so that panning up and down doesn't zoom i
 const planeGeometry1: THREE.PlaneGeometry = new THREE.PlaneGeometry();
 const planeGeometry2: THREE.PlaneGeometry = new THREE.PlaneGeometry();
 
-const texture1 = new THREE.TextureLoader().load("img/grid.png");
-const texture2 = new THREE.TextureLoader().load("img/grid.png");
+const texture1 = new THREE.TextureLoader().load("../../img/grid.png");
+const texture2 = new THREE.TextureLoader().load("../../img/grid.png");
 
 const material1: THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial({
   map: texture1,

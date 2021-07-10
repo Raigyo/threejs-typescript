@@ -22,8 +22,8 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.screenSpacePanning = true; //so that panning up and down doesn't zoom in/out
 const planeGeometry1 = new THREE.PlaneGeometry();
 const planeGeometry2 = new THREE.PlaneGeometry();
-//const texture1 = new THREE.TextureLoader().load("img/grid.png")
-//const texture2 = new THREE.TextureLoader().load("img/grid.png")
+//const texture1 = new THREE.TextureLoader().load("../../img/grid.png")
+//const texture2 = new THREE.TextureLoader().load("../../img/grid.png")
 let mipmap = (size, color) => {
     const imageCanvas = document.createElement("canvas");
     const context = imageCanvas.getContext("2d");
