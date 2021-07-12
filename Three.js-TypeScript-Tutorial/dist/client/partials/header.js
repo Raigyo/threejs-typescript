@@ -176,10 +176,19 @@ headerTemplate.innerHTML = `
       <a href="/components/lights/ambiant-light.html">Ambient Light</a>
       <a href="/components/lights/directional-light.html">Directional Light</a>
       <a href="/components/lights/hemisphere-light.html">Hemisphere Light</a>
-      <a href="#">Point Light</a>
-      <a href="#">Spot Light</a>
-      <a href="#">Spot Light Shadow</a>
-      <a href="#">Directional Light Shadow</a>
+      <a href="/components/lights/point-light.html">Point Light</a>
+      <a href="/components/lights/spot-light.html">Spot Light</a>
+      <a href="/components/lights/spot-light-shadow.html">Spot Light Shadow</a>
+      <a href="/components/lights/directional-light-shadow.html">Directional Light Shadow</a>
+      <a href="/components/lights/cascaded-shadow-map.html">Cascaded Shadow Maps (CSM)</a>
+    </div>
+  </div>
+    <div class="dropdown">
+    <button class="dropbtn">Controls
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/components/contols/orbit-controls.html">Otbit Controls</a>
     </div>
   </div>
   <a href="javascript:void(0);" class="icon">&#9776;</a>

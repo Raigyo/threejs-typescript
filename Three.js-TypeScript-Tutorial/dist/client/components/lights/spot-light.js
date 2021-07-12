@@ -11,17 +11,16 @@ import { GUI } from "/jsm/libs/dat.gui.module";
 const scene = new THREE.Scene();
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
-var light = new THREE.HemisphereLight();
+var light = new THREE.SpotLight();
 scene.add(light);
-var helper = new THREE.HemisphereLightHelper(light, 5);
+var helper = new THREE.SpotLightHelper(light);
 scene.add(helper);
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-// const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer();
 const renderer = new THREE.WebGLRenderer({ canvas: webglCanvas });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
-// const planeGeometry: THREE.PlaneGeometry = new THREE.PlaneGeometry(20, 10)//, 360, 180)
+// const planeGeometry: THREE.PlaneGeometry = new THREE.PlaneGeometry(100, 20)
 // const plane: THREE.Mesh = new THREE.Mesh(planeGeometry, new THREE.MeshPhongMaterial())
 // plane.rotateX(-Math.PI / 2)
 // //plane.position.y = -1.75
@@ -76,7 +75,6 @@ stats.domElement.id = "stats";
 document.body.appendChild(stats.dom);
 var data = {
     color: light.color.getHex(),
-    groundColor: light.groundColor.getHex(),
     mapsEnabled: true,
 };
 const gui = new GUI();
@@ -86,14 +84,16 @@ lightFolder.addColor(data, "color").onChange(() => {
     light.color.setHex(Number(data.color.toString().replace("#", "0x")));
 });
 lightFolder.add(light, "intensity", 0, 1, 0.01);
-const hemisphereLightFolder = gui.addFolder("THREE.HemisphereLight");
-hemisphereLightFolder.addColor(data, "groundColor").onChange(() => {
-    light.groundColor.setHex(Number(data.groundColor.toString().replace("#", "0x")));
-});
-hemisphereLightFolder.add(light.position, "x", -100, 100, 0.01);
-hemisphereLightFolder.add(light.position, "y", -100, 100, 0.01);
-hemisphereLightFolder.add(light.position, "z", -100, 100, 0.01);
-hemisphereLightFolder.open();
+lightFolder.open();
+const spotLightFolder = gui.addFolder("THREE.SpotLight");
+spotLightFolder.add(light, "distance", 0, 100, 0.01);
+spotLightFolder.add(light, "decay", 0, 4, 0.1);
+spotLightFolder.add(light, "angle", 0, 1, 0.1);
+spotLightFolder.add(light, "penumbra", 0, 1, 0.1);
+spotLightFolder.add(light.position, "x", -50, 50, 0.01);
+spotLightFolder.add(light.position, "y", -50, 50, 0.01);
+spotLightFolder.add(light.position, "z", -50, 50, 0.01);
+spotLightFolder.open();
 const meshesFolder = gui.addFolder("Meshes");
 meshesFolder.add(data, "mapsEnabled").onChange(() => {
     material.forEach((m) => {

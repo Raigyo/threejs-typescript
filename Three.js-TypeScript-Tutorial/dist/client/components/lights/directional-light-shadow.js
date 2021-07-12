@@ -11,21 +11,29 @@ import { GUI } from "/jsm/libs/dat.gui.module";
 const scene = new THREE.Scene();
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
-var light = new THREE.HemisphereLight();
+const light = new THREE.DirectionalLight();
+light.castShadow = true;
+light.shadow.mapSize.width = 512;
+light.shadow.mapSize.height = 512;
+light.shadow.camera.near = 0.5;
+light.shadow.camera.far = 100;
 scene.add(light);
-var helper = new THREE.HemisphereLightHelper(light, 5);
+//var helper = new THREE.DirectionalLightHelper(light);
+const helper = new THREE.CameraHelper(light.shadow.camera);
 scene.add(helper);
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-// const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer();
 const renderer = new THREE.WebGLRenderer({ canvas: webglCanvas });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
-// const planeGeometry: THREE.PlaneGeometry = new THREE.PlaneGeometry(20, 10)//, 360, 180)
-// const plane: THREE.Mesh = new THREE.Mesh(planeGeometry, new THREE.MeshPhongMaterial())
-// plane.rotateX(-Math.PI / 2)
-// //plane.position.y = -1.75
-// scene.add(plane)
+const planeGeometry = new THREE.PlaneGeometry(100, 20);
+const plane = new THREE.Mesh(planeGeometry, new THREE.MeshPhongMaterial());
+plane.rotateX(-Math.PI / 2);
+plane.position.y = -1.75;
+plane.receiveShadow = true;
+scene.add(plane);
 const torusGeometry = [
     new THREE.TorusGeometry(),
     new THREE.TorusGeometry(),
@@ -58,6 +66,16 @@ torus[1].position.x = -4;
 torus[2].position.x = 0;
 torus[3].position.x = 4;
 torus[4].position.x = 8;
+torus[0].castShadow = true;
+torus[1].castShadow = true;
+torus[2].castShadow = true;
+torus[3].castShadow = true;
+torus[4].castShadow = true;
+torus[0].receiveShadow = true;
+torus[1].receiveShadow = true;
+torus[2].receiveShadow = true;
+torus[3].receiveShadow = true;
+torus[4].receiveShadow = true;
 scene.add(torus[0]);
 scene.add(torus[1]);
 scene.add(torus[2]);
@@ -76,7 +94,8 @@ stats.domElement.id = "stats";
 document.body.appendChild(stats.dom);
 var data = {
     color: light.color.getHex(),
-    groundColor: light.groundColor.getHex(),
+    shadowMapSizeWidth: 512,
+    shadowMapSizeHeight: 512,
     mapsEnabled: true,
 };
 const gui = new GUI();
@@ -86,14 +105,41 @@ lightFolder.addColor(data, "color").onChange(() => {
     light.color.setHex(Number(data.color.toString().replace("#", "0x")));
 });
 lightFolder.add(light, "intensity", 0, 1, 0.01);
-const hemisphereLightFolder = gui.addFolder("THREE.HemisphereLight");
-hemisphereLightFolder.addColor(data, "groundColor").onChange(() => {
-    light.groundColor.setHex(Number(data.groundColor.toString().replace("#", "0x")));
-});
-hemisphereLightFolder.add(light.position, "x", -100, 100, 0.01);
-hemisphereLightFolder.add(light.position, "y", -100, 100, 0.01);
-hemisphereLightFolder.add(light.position, "z", -100, 100, 0.01);
-hemisphereLightFolder.open();
+lightFolder.open();
+const directionalLightFolder = gui.addFolder("THREE.DirectionalLight");
+directionalLightFolder
+    .add(light.shadow.camera, "left", -10, -1, 0.1)
+    .onChange(() => light.shadow.camera.updateProjectionMatrix());
+directionalLightFolder
+    .add(light.shadow.camera, "right", 1, 10, 0.1)
+    .onChange(() => light.shadow.camera.updateProjectionMatrix());
+directionalLightFolder
+    .add(light.shadow.camera, "top", 1, 10, 0.1)
+    .onChange(() => light.shadow.camera.updateProjectionMatrix());
+directionalLightFolder
+    .add(light.shadow.camera, "bottom", -10, -1, 0.1)
+    .onChange(() => light.shadow.camera.updateProjectionMatrix());
+directionalLightFolder
+    .add(light.shadow.camera, "near", 0.1, 100)
+    .onChange(() => light.shadow.camera.updateProjectionMatrix());
+directionalLightFolder
+    .add(light.shadow.camera, "far", 0.1, 100)
+    .onChange(() => light.shadow.camera.updateProjectionMatrix());
+directionalLightFolder
+    .add(data, "shadowMapSizeWidth", [256, 512, 1024, 2048, 4096])
+    .onChange(() => updateShadowMapSize());
+directionalLightFolder
+    .add(data, "shadowMapSizeHeight", [256, 512, 1024, 2048, 4096])
+    .onChange(() => updateShadowMapSize());
+directionalLightFolder.add(light.position, "x", -50, 50, 0.01);
+directionalLightFolder.add(light.position, "y", -50, 50, 0.01);
+directionalLightFolder.add(light.position, "z", -50, 50, 0.01);
+directionalLightFolder.open();
+function updateShadowMapSize() {
+    light.shadow.mapSize.width = data.shadowMapSizeWidth;
+    light.shadow.mapSize.height = data.shadowMapSizeHeight;
+    light.shadow.map = null;
+}
 const meshesFolder = gui.addFolder("Meshes");
 meshesFolder.add(data, "mapsEnabled").onChange(() => {
     material.forEach((m) => {
