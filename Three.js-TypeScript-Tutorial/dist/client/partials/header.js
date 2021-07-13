@@ -181,6 +181,7 @@ headerTemplate.innerHTML = `
       <a href="/components/lights/spot-light-shadow.html">Spot Light Shadow</a>
       <a href="/components/lights/directional-light-shadow.html">Directional Light Shadow</a>
       <a href="/components/lights/cascaded-shadow-map.html">Cascaded Shadow Maps (CSM)</a>
+      <a href="/components/lights/lod.html">LOD (Level Of Detail)</a>
     </div>
   </div>
     <div class="dropdown">
@@ -188,7 +189,7 @@ headerTemplate.innerHTML = `
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="/components/contols/orbit-controls.html">Otbit Controls</a>
+      <a href="/components/contols/orbit-controls.html">Orbit Controls</a>
     </div>
   </div>
   <a href="javascript:void(0);" class="icon">&#9776;</a>

@@ -38,6 +38,33 @@ class App {
       )
     );
     app.use(
+      "/jsm/controls/TrackballControls",
+      express.static(
+        path.join(
+          __dirname,
+          "../../node_modules/three/examples/jsm/controls/TrackballControls.js"
+        )
+      )
+    );
+    app.use(
+      "/jsm/controls/PointerLockControls",
+      express.static(
+        path.join(
+          __dirname,
+          "../../node_modules/three/examples/jsm/controls/PointerLockControls.js"
+        )
+      )
+    );
+    app.use(
+      "/jsm/controls/DragControls",
+      express.static(
+        path.join(
+          __dirname,
+          "../../node_modules/three/examples/jsm/controls/DragControls.js"
+        )
+      )
+    );
+    app.use(
       "/jsm/loaders/MTLLoader",
       express.static(
         path.join(
