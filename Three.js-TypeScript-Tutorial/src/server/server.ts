@@ -29,6 +29,15 @@ class App {
       )
     );
     app.use(
+      "/jsm/controls/TransformControls",
+      express.static(
+        path.join(
+          __dirname,
+          "../../node_modules/three/examples/jsm/controls/TransformControls.js"
+        )
+      )
+    );
+    app.use(
       "/jsm/controls/OrbitControls",
       express.static(
         path.join(

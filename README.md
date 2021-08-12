@@ -174,8 +174,6 @@ Lighting gives you many more options to change the appearance of meshes within t
 
 If a scene has no lighting, most materials won't be visible. The meshBasicMaterial, meshNormalMaterial and the MeshMatcapMaterial are self illuminating so they don't need lighting to be visible within a scene, but most of the other materials do, such as the meshLambertMaterial, meshPhongMaterial, MeshStandardMaterial, MeshPhysicalMaterial and MeshToonMaterial.
 
-In these next examples, I will demonstrate how the different lighting affects the different materials.
-
 ## Dependancies
 
 - [typescript](https://www.npmjs.com/package/typescript): TypeScript is a language for application-scale JavaScript. TypeScript adds optional types to JavaScript that support tools for large-scale JavaScript applications for any browser, for any host, on any OS.

@@ -181,15 +181,31 @@ headerTemplate.innerHTML = `
       <a href="/components/lights/spot-light-shadow.html">Spot Light Shadow</a>
       <a href="/components/lights/directional-light-shadow.html">Directional Light Shadow</a>
       <a href="/components/lights/cascaded-shadow-map.html">Cascaded Shadow Maps (CSM)</a>
-      <a href="/components/lights/lod.html">LOD (Level Of Detail)</a>
     </div>
   </div>
-    <div class="dropdown">
+  <div class="dropdown">
     <button class="dropbtn">Controls
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="/components/contols/orbit-controls.html">Orbit Controls</a>
+      <a href="/components/controls/orbit-controls.html">Orbit Controls</a>
+      <a href="/components/controls/trackball-controls.html">Trackball Controls</a>
+      <a href="/components/controls/pointer-lock-controls.html">Pointer Lock Controls</a>
+      <a href="/components/controls/drag-controls.html">Drag Controls</a>
+      <a href="/components/controls/transform-controls.html">Transform Controls</a>
+      <a href="/components/controls/multiple-controls.html">OrbitControls with DragControls</a>
+      <a href="/components/controls/multiple-controls-2.html">OrbitControls with TransformControls</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Loaders
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/components/loader/obj-loader.html">OBJ Model Loader</a>
+      <a href="/components/loader/mtl-loader.html">MTL Loader</a>
+      <a href="/components/loader/gltf-loader.html">GLTF Model Loader</a>
+      <a href="/components/loader/draco-loader.html">DRACO Loader</a>
     </div>
   </div>
   <a href="javascript:void(0);" class="icon">&#9776;</a>
