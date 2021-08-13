@@ -1,6 +1,6 @@
 # Three.js and TypeScript
 
-_June / July 2021_
+_June / July / August 2021_
 
 > 🔨 From Udemy [Three.js and TypeScript - Sean Bradley](https://www.udemy.com/course/threejs-tutorials/).
 
@@ -206,5 +206,6 @@ If a scene has no lighting, most materials won't be visible. The meshBasicMateri
 
 ## Useful links
 
+- [Three.js](https://threejs.org/)
 - [Three.js and TypeScript Tutorials](https://sbcode.net/threejs/)
 - [Module Resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html)

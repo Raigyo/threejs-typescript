@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three.js TypeScript Tutorials by Sean Bradley</title>
+  <link rel="stylesheet" href="../../styles/styles.css">
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0px;
+    }
+
+    #animationsPanel {
+      position: absolute;
+      bottom: 150px;
+      right: 10px;
+      width: 300px;
+      height: auto;
+      border: 1px solid white;
+      color: white;
+      font-family: monospace;
+      font-size: 17px;
+    }
+
+    #animationsPanel ul {
+      padding: 4px;
+      list-style-type: none;
+    }
+
+    #dropzone {
+      position: absolute;
+      width: 140px;
+      height: 90px;
+      left: 10px;
+      top: 200px;
+      border: 10px dotted gray;
+      background-color: lightgray;
+      padding: 20px;
+      font-family: monospace;
+      font-size: 17px;
+    }
+
+    #dropzone p {
+      pointer-events: none;
+    }
+  </style>
+  <script src="../../partials/header.js"></script>
+</head>
+
+<body>
+  <h1>Loader - GLTF Custom Animations</h1>
+  <header-component></header-component>
+  <a href="#0" id="vwSrcLink" target="_blank" title="Typescript source">&lt;&gt;</a>
+  <a href="#0" id="explanationsLesson" target="_blank" title="Lesson">?</a>
+
+  <div id="webglCanvas" class="webglCanvas">
+
+    <script type="module" src="gltf-custom-animations.js"></script>
+
+  </div>
+  <div id="dropzone">
+    <p>Drag (uncompressed) animated gLTF/gLB here</p>
+  </div>
+  <div id="animationsPanel"></div>
+  <div id="instructions">Download <a href="../../models/character.glb">sample model</a> to drag!</div>
+</body>
+
+</html>

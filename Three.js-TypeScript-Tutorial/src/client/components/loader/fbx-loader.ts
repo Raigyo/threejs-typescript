@@ -33,7 +33,7 @@ controls.target.set(0, 1, 0);
 
 const fbxLoader = new FBXLoader();
 fbxLoader.load(
-  "../../models/kachujin_g_rosales.fbx",
+  "../../models/ybot.fbx",
   (object) => {
     object.traverse(function (child) {
       if ((child as THREE.Mesh).isMesh) {

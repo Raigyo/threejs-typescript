@@ -19,7 +19,7 @@ controls.enableDamping = true;
 controls.target.set(0, 1, 0);
 //const material = new THREE.MeshNormalMaterial()
 const fbxLoader = new FBXLoader();
-fbxLoader.load("../../models/kachujin_g_rosales.fbx", (object) => {
+fbxLoader.load("../../models/ybot.fbx", (object) => {
     object.traverse(function (child) {
         if (child.isMesh) {
             // (child as THREE.Mesh).material = material

@@ -208,6 +208,9 @@ headerTemplate.innerHTML = `
       <a href="/components/loader/textured-gltf.html">Textured GLTF</a>
       <a href="/components/loader/draco-loader.html">DRACO Loader</a>
       <a href="/components/loader/fbx-loader.html">FBX Loader</a>
+      <a href="/components/loader/fbx-animations.html">FBX Animations</a>
+      <a href="/components/loader/gltf-animations.html">GLTF Animations</a>
+      <a href="/components/loader/gltf-custom-animations.html">GLTF Custom Animations</a>
     </div>
   </div>
   <a href="javascript:void(0);" class="icon">&#9776;</a>
