@@ -74,6 +74,39 @@ class App {
       )
     );
     app.use(
+      "/js/libs/draco/",
+      express.static(
+        path.join(__dirname, "../../node_modules/three/examples/js/libs/draco")
+      )
+    );
+    app.use(
+      "/jsm/loaders/DRACOLoader",
+      express.static(
+        path.join(
+          __dirname,
+          "../../node_modules/three/examples/jsm/loaders/DRACOLoader.js"
+        )
+      )
+    );
+    app.use(
+      "/jsm/loaders/GLTFLoader",
+      express.static(
+        path.join(
+          __dirname,
+          "../../node_modules/three/examples/jsm/loaders/GLTFLoader.js"
+        )
+      )
+    );
+    app.use(
+      "/jsm/loaders/FBXLoader",
+      express.static(
+        path.join(
+          __dirname,
+          "../../node_modules/three/examples/jsm/loaders/FBXLoader.js"
+        )
+      )
+    );
+    app.use(
       "/jsm/loaders/MTLLoader",
       express.static(
         path.join(

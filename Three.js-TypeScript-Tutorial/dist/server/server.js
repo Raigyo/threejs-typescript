@@ -20,6 +20,10 @@ class App {
         app.use("/jsm/controls/TrackballControls", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/jsm/controls/TrackballControls.js")));
         app.use("/jsm/controls/PointerLockControls", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/jsm/controls/PointerLockControls.js")));
         app.use("/jsm/controls/DragControls", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/jsm/controls/DragControls.js")));
+        app.use("/js/libs/draco/", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/js/libs/draco")));
+        app.use("/jsm/loaders/DRACOLoader", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/jsm/loaders/DRACOLoader.js")));
+        app.use("/jsm/loaders/GLTFLoader", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/jsm/loaders/GLTFLoader.js")));
+        app.use("/jsm/loaders/FBXLoader", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/jsm/loaders/FBXLoader.js")));
         app.use("/jsm/loaders/MTLLoader", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/jsm/loaders/MTLLoader.js")));
         app.use("/jsm/loaders/OBJLoader", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/jsm/loaders/OBJLoader.js")));
         app.use("/jsm/libs/stats.module", express_1.default.static(path_1.default.join(__dirname, "../../node_modules/three/examples/jsm/libs/stats.module.js")));
