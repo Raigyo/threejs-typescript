@@ -158,9 +158,10 @@ function onClick() {
 document.addEventListener("mousemove", onDocumentMouseMove, false);
 function onDocumentMouseMove(event: MouseEvent) {
   event.preventDefault();
-
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  const box = <HTMLVideoElement>document.querySelector("#webglCanvas");
+  const rect = box.getBoundingClientRect();
+  mouse.x = ((event.clientX - rect.left) / window.innerWidth) * 2 - 1;
+  mouse.y = -((event.clientY - rect.top) / window.innerHeight) * 2 + 1;
 
   if (drawingLine) {
     raycaster.setFromCamera(mouse, camera);

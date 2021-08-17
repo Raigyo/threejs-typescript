@@ -93,14 +93,12 @@ renderer.domElement.addEventListener("dblclick", onDoubleClick, false);
 renderer.domElement.addEventListener("mousemove", onMouseMove, false);
 
 function onMouseMove(event: MouseEvent) {
-  let box = document.querySelector("#webglCanvas");
+  let box = <HTMLVideoElement>document.querySelector("#webglCanvas");
   const rect = box.getBoundingClientRect();
   const mouse = {
     x: ((event.clientX - rect.left) / renderer.domElement.clientWidth) * 2 - 1,
     y: -((event.clientY - rect.top) / renderer.domElement.clientHeight) * 2 + 1,
   };
-
-  console.log(event.clientY);
 
   raycaster.setFromCamera(mouse, camera);
 
@@ -125,7 +123,7 @@ function onMouseMove(event: MouseEvent) {
 }
 
 function onDoubleClick(event: MouseEvent) {
-  let box = document.querySelector("#webglCanvas");
+  let box = <HTMLVideoElement>document.querySelector("#webglCanvas");
   const rect = box.getBoundingClientRect();
   const mouse = {
     x: ((event.clientX - rect.left) / renderer.domElement.clientWidth) * 2 - 1,

@@ -224,6 +224,14 @@ headerTemplate.innerHTML = `
       <a href="/components/raycaster/measurements.html">Measurements</a>
     </div>
   </div>
+    <div class="dropdown">
+    <button class="dropbtn">Tween and physics
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/components/tween-physics/tween.html">Tween</a>
+    </div>
+  </div>
   <a href="javascript:void(0);" class="icon">&#9776;</a>
 </div>
 

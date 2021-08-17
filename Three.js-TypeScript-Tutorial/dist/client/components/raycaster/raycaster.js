@@ -70,7 +70,6 @@ function onMouseMove(event) {
         x: ((event.clientX - rect.left) / renderer.domElement.clientWidth) * 2 - 1,
         y: -((event.clientY - rect.top) / renderer.domElement.clientHeight) * 2 + 1,
     };
-    console.log(event.clientY);
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObjects(sceneMeshes, false);
     if (intersects.length > 0) {

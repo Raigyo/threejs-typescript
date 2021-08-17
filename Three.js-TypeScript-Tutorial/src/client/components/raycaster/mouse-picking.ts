@@ -85,10 +85,15 @@ let intersects: THREE.Intersection[];
 
 document.addEventListener("mousemove", onDocumentMouseMove, false);
 function onDocumentMouseMove(event: MouseEvent) {
+  const box = <HTMLVideoElement>document.querySelector("#webglCanvas");
+  const rect = box.getBoundingClientRect();
   raycaster.setFromCamera(
     {
-      x: (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
-      y: -(event.clientY / renderer.domElement.clientHeight) * 2 + 1,
+      x:
+        ((event.clientX - rect.left) / renderer.domElement.clientWidth) * 2 - 1,
+      y:
+        -((event.clientY - rect.top) / renderer.domElement.clientHeight) * 2 +
+        1,
     },
     camera
   );
