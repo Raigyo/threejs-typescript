@@ -2,7 +2,7 @@
 
 _June / July / August 2021_
 
-> 🔨 From Udemy [Three.js and TypeScript - Sean Bradley](https://www.udemy.com/course/threejs-tutorials/).
+> 🔨 Learn Threejs, TypeScript and NodeJS to create interactive 3D content on the web. From Udemy [Three.js and TypeScript - Sean Bradley](https://www.udemy.com/course/threejs-tutorials/).
 
 ---
 

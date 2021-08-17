@@ -104,7 +104,7 @@ gltfLoader.load(
                 console.log(error);
               }
             );
-          };,
+          },
           (xhr: any) => {
             console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
           },

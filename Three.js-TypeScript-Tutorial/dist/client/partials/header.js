@@ -213,6 +213,17 @@ headerTemplate.innerHTML = `
       <a href="/components/loader/gltf-custom-animations.html">GLTF Custom Animations</a>
     </div>
   </div>
+  <div class="dropdown">
+    <button class="dropbtn">Raycaster
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/components/raycaster/raycaster.html">Raycaster</a>
+      <a href="/components/raycaster/collision-detection.html">Collision Detection</a>
+      <a href="/components/raycaster/mouse-picking.html">Mouse Picking</a>
+      <a href="/components/raycaster/measurements.html">Measurements</a>
+    </div>
+  </div>
   <a href="javascript:void(0);" class="icon">&#9776;</a>
 </div>
 

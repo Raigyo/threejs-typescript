@@ -125,6 +125,15 @@ class App {
       )
     );
     app.use(
+      "/jsm/renderers/CSS2DRenderer",
+      express.static(
+        path.join(
+          __dirname,
+          "../../node_modules/three/examples/jsm/renderers/CSS2DRenderer.js"
+        )
+      )
+    );
+    app.use(
       "/jsm/libs/stats.module",
       express.static(
         path.join(

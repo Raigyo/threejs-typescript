@@ -64,26 +64,21 @@ gltfLoader.load("../../models/ybot.glb", (gltf) => {
             }, (error) => {
                 console.log(error);
             });
-        });
-        (xhr) => {
+        }, (xhr) => {
             console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-        },
-            (error) => {
-                console.log(error);
-            };
+        }, (error) => {
+            console.log(error);
+        });
+    }, (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+    }, (error) => {
+        console.log(error);
     });
 }, (xhr) => {
     console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
 }, (error) => {
     console.log(error);
 });
-(xhr) => {
-    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-},
-    (error) => {
-        console.log(error);
-    };
-;
 window.addEventListener("resize", onWindowResize, false);
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
