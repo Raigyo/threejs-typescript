@@ -204,6 +204,10 @@ If a scene has no lighting, most materials won't be visible. The meshBasicMateri
 
 `npm install @types/dat.gui`
 
+- [cannon-es](https://www.npmjs.com/package/cannon-es): Inspired by three.js and ammo.js, and driven by the fact that the web lacks a physics engine, here comes cannon.js. The rigid body physics engine includes simple collision detection, various body shapes, contacts, friction and constraints.
+
+`npm install cannon-es --save-dev`
+
 ## Useful links
 
 - [Three.js](https://threejs.org/)

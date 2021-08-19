@@ -230,6 +230,9 @@ headerTemplate.innerHTML = `
     </button>
     <div class="dropdown-content">
       <a href="/components/tween-physics/tween.html">Tween</a>
+      <a href="/components/tween-physics/tween-animation.html">Tween with the AnimationMixer</a>
+      <a href="/components/tween-physics/vector3-lerp.html">Vector3 Lerp</a>
+      <a href="/components/tween-physics/physics-cannon.html">Physics with Cannon</a>
     </div>
   </div>
   <a href="javascript:void(0);" class="icon">&#9776;</a>
