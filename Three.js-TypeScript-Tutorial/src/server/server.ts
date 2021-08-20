@@ -142,6 +142,25 @@ class App {
         )
       )
     );
+    // app.use(
+    //   "/cannon/",
+    //   express.static(path.join(__dirname, "../../node_modules/cannon/build/"))
+    // );
+    app.use(
+      "/dist/cannon-es",
+      express.static(
+        path.join(__dirname, "../../node_modules/cannon-es/dist/cannon-es.js")
+      )
+    );
+    app.use(
+      "/jsm/geometries/ConvexGeometry",
+      express.static(
+        path.join(
+          __dirname,
+          "../../node_modules/three/examples/jsm/geometries/ConvexGeometry"
+        )
+      )
+    );
     app.use(
       "/jsm/libs/stats.module",
       express.static(

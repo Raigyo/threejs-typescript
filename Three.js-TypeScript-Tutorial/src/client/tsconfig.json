@@ -13,6 +13,9 @@
       ],
       "/jsm/libs/tween.module.min": [
         "../typings/tween.js/"
+      ],
+      "cannon": [
+        "../typings/cannon"
       ]
     },
     "moduleResolution": "node"

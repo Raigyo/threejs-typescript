@@ -1,8 +1,13 @@
 const path = require("path");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: "./src/client/client.ts",
+  devtool: "eval-source-map",
+  devServer: {
+    contentBase: "./dist/client",
+    hot: true,
+  },
   module: {
     rules: [
       {

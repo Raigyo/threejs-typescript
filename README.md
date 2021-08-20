@@ -213,3 +213,5 @@ If a scene has no lighting, most materials won't be visible. The meshBasicMateri
 - [Three.js](https://threejs.org/)
 - [Three.js and TypeScript Tutorials](https://sbcode.net/threejs/)
 - [Module Resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html)
+- [cannon-es](https://pmndrs.github.io/cannon-es/)
+- [Import Cannon package](https://discourse.threejs.org/t/import-package-does-not-work-in-three-js/20820)

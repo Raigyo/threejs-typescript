@@ -233,6 +233,8 @@ headerTemplate.innerHTML = `
       <a href="/components/tween-physics/tween-animation.html">Tween with the AnimationMixer</a>
       <a href="/components/tween-physics/vector3-lerp.html">Vector3 Lerp</a>
       <a href="/components/tween-physics/physics-cannon.html">Physics with Cannon</a>
+      <a href="/components/tween-physics/cannon-debug.html">Cannon Debug Renderer</a>
+      <a href="/components/tween-physics/shapes-mixes.html">Trimeshes, ConvexPolyhedrons and Compound Shapes</a>
     </div>
   </div>
   <a href="javascript:void(0);" class="icon">&#9776;</a>
