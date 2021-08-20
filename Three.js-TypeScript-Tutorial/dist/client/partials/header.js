@@ -129,7 +129,7 @@ headerTemplate.innerHTML = `
 
 <div class="topnav" id="myTopnav">
   <a href="/" class="active">Home</a>
-  <a href="/components/geometry/geometry.html">Geometry</a>
+  <a href="/components/geometry/geometry.html">Geometries</a>
   <div class="dropdown">
     <button class="dropbtn">Materials
       <i class="fa fa-caret-down"></i>
