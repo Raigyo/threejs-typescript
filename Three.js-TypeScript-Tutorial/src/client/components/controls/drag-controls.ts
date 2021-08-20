@@ -1,12 +1,16 @@
 // If using Relative Import References
-import * as THREE from "/build/three.module.js";
-import { DragControls } from "/jsm/controls/DragControls";
-import Stats from "/jsm/libs/stats.module";
+// import * as THREE from "/build/three.module.js";
+// import { DragControls } from "/jsm/controls/DragControls";
+// import Stats from "/jsm/libs/stats.module";
 
 // If using Module Specifiers
 //import * as THREE from 'three'
 //import { DragControls } from 'three/examples/jsm/controls/DragControls'
 //import Stats from 'three/examples/jsm/libs/stats.module'
+
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import { DragControls } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/controls/DragControls";
+import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
 
 const scene: THREE.Scene = new THREE.Scene();
 const axesHelper = new THREE.AxesHelper(5);

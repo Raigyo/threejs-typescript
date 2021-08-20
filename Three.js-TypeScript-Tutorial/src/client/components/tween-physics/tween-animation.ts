@@ -1,9 +1,15 @@
-import * as THREE from "/build/three.module.js";
-import { OrbitControls } from "/jsm/controls/OrbitControls";
-import { GLTFLoader } from "/jsm/loaders/GLTFLoader";
-import Stats from "/jsm/libs/stats.module";
-import { GUI } from "/jsm/libs/dat.gui.module";
-import { TWEEN } from "/jsm/libs/tween.module.min";
+// import * as THREE from "/build/three.module.js";
+// import { OrbitControls } from "/jsm/controls/OrbitControls";
+// import { GLTFLoader } from "/jsm/loaders/GLTFLoader";
+// import Stats from "/jsm/libs/stats.module";
+// import { GUI } from "/jsm/libs/dat.gui.module";
+// import { TWEEN } from "/jsm/libs/tween.module.min";
+
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/controls/OrbitControls";
+import { TWEEN } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/tween.module.min";
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/loaders/GLTFLoader";
+import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
 
 const scene = new THREE.Scene();
 scene.add(new THREE.AxesHelper(5));

@@ -1,11 +1,14 @@
 // If using Relative Import References
-import * as THREE from "/build/three.module.js";
-import { PointerLockControls } from "/jsm/controls/PointerLockControls";
-import Stats from "/jsm/libs/stats.module";
+// import * as THREE from "/build/three.module.js";
+// import { PointerLockControls } from "/jsm/controls/PointerLockControls";
+// import Stats from "/jsm/libs/stats.module";
 // If using Module Specifiers
 //import * as THREE from 'three'
 //import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls'
 //import Stats from 'three/examples/jsm/libs/stats.module'
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import { PointerLockControls } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/controls/PointerLockControls";
+import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
 const scene = new THREE.Scene();
 var light = new THREE.AmbientLight();
 scene.add(light);

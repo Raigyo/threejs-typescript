@@ -1,30 +1,14 @@
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common.js");
 const path = require("path");
 
-module.exports = {
+module.exports = merge(common, {
   mode: "development",
-  entry: "./src/client/client.ts",
   devtool: "eval-source-map",
   devServer: {
-    contentBase: "./dist/client",
+    static: {
+      directory: path.join(__dirname, "../../dist/client"),
+    },
     hot: true,
   },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "../../dist/client"),
-  },
-  performance: {
-    hints: false,
-  },
-};
+});

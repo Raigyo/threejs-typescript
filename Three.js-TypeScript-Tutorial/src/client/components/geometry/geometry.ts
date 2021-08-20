@@ -1,7 +1,12 @@
-import * as THREE from "/build/three.module.js";
-import { OrbitControls } from "/jsm/controls/OrbitControls";
-import Stats from "/jsm/libs/stats.module"; // default export
-import { GUI } from "/jsm/libs/dat.gui.module"; // {} no default export: we using a specific class from module
+// import * as THREE from "/build/three.module.js";
+// import { OrbitControls } from "/jsm/controls/OrbitControls";
+// import Stats from "/jsm/libs/stats.module"; // default export
+// import { GUI } from "/jsm/libs/dat.gui.module"; // {} no default export: we using a specific class from module
+
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/controls/OrbitControls";
+import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
+import { GUI } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/dat.gui.module";
 
 const scene: THREE.Scene = new THREE.Scene();
 

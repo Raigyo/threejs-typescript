@@ -1,14 +1,19 @@
-// If using Relative Import References
-import * as THREE from "/build/three.module.js";
-import { OrbitControls } from "/jsm/controls/OrbitControls";
-import Stats from "/jsm/libs/stats.module";
-import { GUI } from "/jsm/libs/dat.gui.module";
+// // If using Relative Import References
+// import * as THREE from "/build/three.module.js";
+// import { OrbitControls } from "/jsm/controls/OrbitControls";
+// import Stats from "/jsm/libs/stats.module";
+// import { GUI } from "/jsm/libs/dat.gui.module";
 
 // If using Module Specifiers
 //import * as THREE from 'three'
 //import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 //import Stats from 'three/examples/jsm/libs/stats.module'
 //import { GUI } from 'three/examples/jsm/libs/dat.gui.module'
+
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/controls/OrbitControls";
+import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
+import { GUI } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/dat.gui.module";
 
 const scene1: THREE.Scene = new THREE.Scene();
 const scene2: THREE.Scene = new THREE.Scene();

@@ -1,9 +1,16 @@
-import * as THREE from "/build/three.module.js";
-import { OrbitControls } from "/jsm/controls/OrbitControls";
-import Stats from "/jsm/libs/stats.module";
-import { GUI } from "/jsm/libs/dat.gui.module";
-import { GLTFLoader } from "/jsm/loaders/GLTFLoader";
-import { TWEEN } from "/jsm/libs/tween.module.min";
+// import * as THREE from "/build/three.module.js";
+// import { OrbitControls } from "/jsm/controls/OrbitControls";
+// import Stats from "/jsm/libs/stats.module";
+// import { GUI } from "/jsm/libs/dat.gui.module";
+// import { GLTFLoader } from "/jsm/loaders/GLTFLoader";
+// import { TWEEN } from "/jsm/libs/tween.module.min";
+
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/controls/OrbitControls";
+import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
+import { GUI } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/dat.gui.module";
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/loaders/GLTFLoader";
+import { TWEEN } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/tween.module.min";
 
 const scene: THREE.Scene = new THREE.Scene();
 scene.background = new THREE.Color(0x87ceeb);

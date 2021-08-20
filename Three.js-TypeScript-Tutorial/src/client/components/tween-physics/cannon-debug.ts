@@ -1,9 +1,18 @@
-import * as THREE from "/build/three.module.js";
-import { OrbitControls } from "/jsm/controls/OrbitControls";
-import Stats from "/jsm/libs/stats.module";
-import { GUI } from "/jsm/libs/dat.gui.module";
-import { OBJLoader } from "/jsm/loaders/OBJLoader";
-import * as CANNON from "/dist/cannon-es";
+// import * as THREE from "/build/three.module.js";
+// import { OrbitControls } from "/jsm/controls/OrbitControls";
+// import Stats from "/jsm/libs/stats.module";
+// import { GUI } from "/jsm/libs/dat.gui.module";
+// import { OBJLoader } from "/jsm/loaders/OBJLoader";
+// import * as CANNON from "/dist/cannon-es";
+// import CannonUtils from "../../utils/cannonUtils.js";
+// import CannonDebugRenderer from "../../utils/cannonDebugRenderer.js";
+
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/controls/OrbitControls";
+import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
+import { GUI } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/dat.gui.module";
+import { OBJLoader } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/loaders/OBJLoader";
+import * as CANNON from "https://www.jsdelivr.com/package/npm/cannon-es";
 import CannonUtils from "../../utils/cannonUtils.js";
 import CannonDebugRenderer from "../../utils/cannonDebugRenderer.js";
 

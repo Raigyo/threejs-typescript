@@ -1,9 +1,13 @@
-import * as THREE from "/build/three.module.js";
-import { OrbitControls } from "/jsm/controls/OrbitControls";
-import Stats from "/jsm/libs/stats.module";
-import { GUI } from "/jsm/libs/dat.gui.module";
-// import "/cannon/cannon.min.js";
-import * as CANNON from "/dist/cannon-es";
+// import * as THREE from "/build/three.module.js";
+// import { OrbitControls } from "/jsm/controls/OrbitControls";
+// import Stats from "/jsm/libs/stats.module";
+// import { GUI } from "/jsm/libs/dat.gui.module";
+// import * as CANNON from "/dist/cannon-es";
+
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/controls/OrbitControls";
+import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
+import * as CANNON from "../../utils/cannon-es.js";
 
 const scene = new THREE.Scene();
 scene.add(new THREE.AxesHelper(5));

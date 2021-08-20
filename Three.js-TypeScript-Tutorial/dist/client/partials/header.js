@@ -180,7 +180,6 @@ headerTemplate.innerHTML = `
       <a href="/components/lights/spot-light.html">Spot Light</a>
       <a href="/components/lights/spot-light-shadow.html">Spot Light Shadow</a>
       <a href="/components/lights/directional-light-shadow.html">Directional Light Shadow</a>
-      <a href="/components/lights/cascaded-shadow-map.html">Cascaded Shadow Maps (CSM)</a>
     </div>
   </div>
   <div class="dropdown">
