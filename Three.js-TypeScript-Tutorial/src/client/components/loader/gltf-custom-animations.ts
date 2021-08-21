@@ -8,7 +8,7 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.125.2/examples/js
 import {
   GLTF,
   GLTFLoader,
-} from "https://cdn.skypack.dev/three@0.125.2/examples//jsm/loaders/GLTFLoader";
+} from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/loaders/GLTFLoader";
 import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
 
 const scene = new THREE.Scene();

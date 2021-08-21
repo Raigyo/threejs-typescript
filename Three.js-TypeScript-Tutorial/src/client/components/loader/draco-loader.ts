@@ -7,7 +7,7 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/loaders/GLTFLoader";
-import { DRACOLoader } from "https://cdn.skypack.dev/three@0.125.2/examples/jsmloaders/DRACOLoader";
+import { DRACOLoader } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/loaders/DRACOLoader";
 import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
 
 const scene = new THREE.Scene();

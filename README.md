@@ -27,7 +27,7 @@ Or
 ```batch
 cd Three.js-TypeScript-Tutorial
 npm install
-npm run dev
+npm start
 ```
 
 [http://localhost:3000/](http://localhost:3000/)
@@ -215,3 +215,7 @@ If a scene has no lighting, most materials won't be visible. The meshBasicMateri
 - [Module Resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html)
 - [cannon-es](https://pmndrs.github.io/cannon-es/)
 - [Import Cannon package](https://discourse.threejs.org/t/import-package-does-not-work-in-three-js/20820)
+- [three-vrm](https://github.com/pixiv/three-vrm)
+- [three-vrm exemples](https://rdrgn.github.io/three-vrm/)
+- [@pixiv/three-vrm](https://pixiv.github.io/three-vrm/docs/)
+- [@pixiv/three-vrm](https://unpkg.com/browse/@pixiv/three-vrm@0.6.4/lib//)

@@ -11,7 +11,7 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.125.2/examples/js
 import Stats from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/stats.module";
 import { GUI } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/libs/dat.gui.module";
 import { OBJLoader } from "https://cdn.skypack.dev/three@0.125.2/examples/jsm/loaders/OBJLoader";
-import * as CANNON from "https://www.jsdelivr.com/package/npm/cannon-es";
+import * as CANNON from "../../utils/cannon-es.js";
 import CannonUtils from "../../utils/cannonUtils.js";
 import CannonDebugRenderer from "../../utils/cannonDebugRenderer.js";
 const scene = new THREE.Scene();
