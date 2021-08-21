@@ -2,8 +2,8 @@
 //Copyright (c) 2020-2021 Sean Bradley
 // import * as THREE from "three";
 // import * as CANNON from "cannon-es";
-import * as THREE from "/build/three.module.js";
-import * as CANNON from "/dist/cannon-es";
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import * as CANNON from "cannon-es.js";
 
 interface Face3 {
   a: number;

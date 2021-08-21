@@ -8,8 +8,8 @@
 // - added support for CANNON.Cylinder
 // - Updated to use cannon-es
 
-import * as THREE from "/build/three.module.js";
-import * as CANNON from "/dist/cannon-es";
+import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
+import * as CANNON from "cannon-es.js";
 
 export default class CannonDebugRenderer {
   public scene: THREE.Scene;
