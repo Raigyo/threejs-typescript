@@ -6,7 +6,7 @@ _June / July / August 2021_
 
 ---
 
-Demo on [Netlify](https://gallant-albattani-80517d.netlify.app/).
+Demo on [Netlify](https://reverent-noether-c725f9.netlify.app/).
 
 <h1 align="center">
     <img src="_readme-img/logos.png">
