@@ -9,7 +9,7 @@
 // - Updated to use cannon-es
 
 import * as THREE from "https://cdn.skypack.dev/three@0.125.2";
-import * as CANNON from "cannon-es.js";
+import * as CANNON from "./cannon-es.js";
 
 export default class CannonDebugRenderer {
   public scene: THREE.Scene;
