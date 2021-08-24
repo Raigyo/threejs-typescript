@@ -50,6 +50,7 @@ gltfLoader.load("../../models/ybot.glb", (gltf) => {
         const animationAction = mixer.clipAction(gltf.animations[0]);
         animationActions.push(animationAction);
         animationsFolder.add(animations, "fight");
+        // animationAction.play();
         //add an animation from another file
         gltfLoader.load("../../models/zombie.glb", (gltf) => {
             console.log("loaded zombie");

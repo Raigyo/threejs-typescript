@@ -77,7 +77,7 @@ gltfLoader.load(
         const animationAction = mixer.clipAction((gltf as any).animations[0]);
         animationActions.push(animationAction);
         animationsFolder.add(animations, "fight");
-
+        // animationAction.play();
         //add an animation from another file
         gltfLoader.load(
           "../../models/zombie.glb",
