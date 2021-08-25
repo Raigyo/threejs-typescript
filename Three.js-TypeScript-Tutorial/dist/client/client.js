@@ -8,11 +8,36 @@ let camera, cameraTarget, scene, renderer, light, model;
 let modelReady = false;
 let mixer;
 // const animationActions: THREE.AnimationAction[] = [];
+// loader
+// An object to hold all the things needed for our loading screen
+let loadingScreen = {
+    scene: new THREE.Scene(),
+    camera: new THREE.PerspectiveCamera(90, 1280 / 720, 0.1, 100),
+    box: new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), new THREE.MeshBasicMaterial({ color: 0x4444ff })),
+};
+let loadingManager = null;
+let RESOURCES_LOADED = false;
+// init
 init();
 animate();
 function init() {
-    // container = document.getElementById("webglCanvas");
-    // document.body.appendChild(container);
+    // loader
+    // Set up the loading screen's scene.
+    // It can be treated just like our main scene.
+    loadingScreen.box.position.set(0, 0, 5);
+    loadingScreen.camera.lookAt(loadingScreen.box.position);
+    loadingScreen.scene.add(loadingScreen.box);
+    // Create a loading manager to set RESOURCES_LOADED when appropriate.
+    // Pass loadingManager to all resource loaders.
+    loadingManager = new THREE.LoadingManager();
+    loadingManager.onProgress = function (item, loaded, total) {
+        console.log(item, loaded, total);
+    };
+    loadingManager.onLoad = function () {
+        console.log("loaded all resources");
+        RESOURCES_LOADED = true;
+    };
+    // camera
     camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.25, 20);
     camera.position.set(0, 1.6, -2.2);
     cameraTarget = new THREE.Vector3(0, 0.8, 0);
@@ -30,7 +55,7 @@ function init() {
     light.position.set(0, 1, 0);
     scene.add(light);
     // model
-    const loader = new VRMLoader();
+    const loader = new VRMLoader(loadingManager);
     loader.load("models/vroid.vrm", function (vrm) {
         // VRMLoader doesn't support VRM Unlit extension yet so
         // converting all materials to THREE.MeshBasicMaterial here as workaround so far.
@@ -106,6 +131,16 @@ function onWindowResize() {
 //
 const clock = new THREE.Clock();
 function animate() {
+    // This block runs while resources are loading.
+    if (RESOURCES_LOADED == false) {
+        requestAnimationFrame(animate);
+        loadingScreen.box.position.x -= 0.05;
+        if (loadingScreen.box.position.x < -10)
+            loadingScreen.box.position.x = 10;
+        loadingScreen.box.position.y = Math.sin(loadingScreen.box.position.x);
+        renderer.render(loadingScreen.scene, loadingScreen.camera);
+        return; // Stop the function here.
+    }
     requestAnimationFrame(animate);
     // if (modelReady) mixer.update(clock.getDelta());
     controls.update(); // to support damping
