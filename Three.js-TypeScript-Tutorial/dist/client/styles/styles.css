@@ -97,3 +97,13 @@ h1 {
     } */
 
 /* LOADER */
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: medium;
+  }
+  #gui {
+    top: 54em;
+    right: 10em;
+  }
+}

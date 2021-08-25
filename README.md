@@ -223,3 +223,6 @@ If a scene has no lighting, most materials won't be visible. The meshBasicMateri
 - [@pixiv/three-vrm - files](https://unpkg.com/browse/@pixiv/three-vrm@0.6.4/lib/)
 - [saturday06/VRM_Addon_for_Blender](https://github.com/saturday06/VRM_Addon_for_Blender)
 - [Cats Blender Plugin (0.19.0)](https://github.com/GiveMeAllYourCats/cats-blender-plugin)
+- [Material-combiner Plugin](https://vrcat.club/threads/material-combiner-blender-addon-2-1-1-7.2255/)
+- [Importing a Model from VRoid Studio into Unreal Engine](https://www.flynsarmy.com/2021/01/importing-a-model-from-vroid-studio-into-unreal-engine/)
+- [<model-viewer>](https://modelviewer.dev/)
