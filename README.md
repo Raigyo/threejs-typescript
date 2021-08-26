@@ -12,6 +12,12 @@ Demo on [Netlify](https://reverent-noether-c725f9.netlify.app/).
     <img src="_readme-img/logos.png">
 </h1>
 
+![capture](_readme-img/capture-1.png)
+
+![capture](_readme-img/capture-2.png)
+
+![capture](_readme-img/capture-3.png)
+
 ## Test locally (Relative Import)
 
 ### Launch server-app
